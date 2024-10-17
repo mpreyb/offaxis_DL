@@ -4,6 +4,9 @@
     Residual Neural Network (ResNet) for a classification task with 21 categories.
     The primary objective of this model is to facilitate autofocusing solutions in Digital Holographic Microscopy (DHM). 
     To identify the in-focus plane, we perform transfer learning using this model onto the regression model (see resnet_reg.py)
+
+    Inputs: Out-of-focus simulated holograms.
+    Outputs: Class (0 to 21).
     
     Python Version: 3.10.12
     Keras version: 3.3.2
