@@ -5,6 +5,9 @@
     Residual Neural Network (ResNet) for a regression task (distances from -10 to 10).
     All distances are normalized to the range -1,1 before training.
 
+    Inputs: Out-of-focus simulated holograms.
+    Outputs: In-focus distance [mm].
+
     Python Version: 3.10.12
     Keras version: 3.3.2
     Tensorflow vesion: 2.16.1
