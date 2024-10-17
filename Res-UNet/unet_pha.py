@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
-    AUTOFOCUSING RES-UNET MODEL FOR DHM AMPLITUDE RECONSTRUCTIONS
+    AUTOFOCUSING RES-UNET MODEL FOR DHM PHASE RECONSTRUCTIONS
     
     This model is designed for phase reconstruction from out-of-focus holograms using a U-Net architecture enhanced with ResNet blocks. 
     The model follows an encoder-decoder structure and incorporates several convolutional layers, skip connections, and residual blocks.
