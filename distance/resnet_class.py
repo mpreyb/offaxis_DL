@@ -1,5 +1,5 @@
 '''
-    CLASSIFICATION MODEL
+    AUTOFOCUSING CLASSIFICATION MODEL FOR DHM
     
     Residual Neural Network (ResNet) for a classification task with 21 categories.
     The primary objective of this model is to facilitate autofocusing solutions in Digital Holographic Microscopy (DHM). 
