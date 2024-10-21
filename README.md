@@ -1,6 +1,9 @@
 # Learning-based models to obtain amplitude and phase reconstructions of defocused holograms
+The proposed hybrid model aims to deliver both aberration-free in-focus amplitude and phase reconstructions, while accurately predicting in-focus distances, from out-of-focus holograms. The tasks were handled independently with the aim of later merging them.
 
+The development began with a 7-category ResNet model for hologram processing, which includes a Fourier spectra amplitude layer. This was expanded to a 21-category  regression model, followed by transfer learning to create a final regression model with added dense layers.
 
+For the image-to-image (hologram-to-reconstruction) task, a U-Net architecture was developed, leveraging the CNN from the regression model.
 
 
 ## Downloads
