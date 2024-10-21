@@ -40,6 +40,8 @@ epoch = 100
 batch = 260
 lr =  0.00001
 
+
+####################################################################################################################################
 #%% DATA LOADING FUNCTIONS
 
 class HoloAmpDataGenerator(tf.keras.utils.Sequence):
@@ -94,6 +96,8 @@ def split_data(holo_files, amp_files, train_percent=0.8, val_percent=0.1):
     
     return (train_holo, train_amp), (val_holo, val_amp), (test_holo, test_amp)
 
+
+####################################################################################################################################
 #%% FOURIER TRANSFORM LAYER
     
 class FourierTransformLayer(Layer):
@@ -164,6 +168,8 @@ def extract_key(fname):
         return (digit, number, distance)
     return None
 
+
+####################################################################################################################################
 #%% PREPARING DATA
 
 holo_dir = 'HOLO_V2.0'  
@@ -203,7 +209,9 @@ X_batch, y_batch = train_gen[0]
 print("Shape of hologram batch (X_batch):", X_batch.shape)
 print("-------------------------------------------------------------------")
 
-#%% SSIM
+
+####################################################################################################################################
+#%% Functions to calculate SSIM (Structural Similarity Index)
 
 def compute_ssim_per_distance(test_gen, predictions):
     distance_ssim_map = {}
@@ -240,7 +248,9 @@ def plot_ssim_distribution(ssim_scores_per_distance, output_path="ssim_distribut
     # Save the plot as a .png file
     plt.savefig(output_path)
     plt.close()  # Close the plot to free memory
-    
+
+
+####################################################################################################################################
 #%% LOADING MODEL AND MAKING PREDICTIONS
 
 unet = load_model(model_path, custom_objects={'ResBlock': ResBlock}, compile=False)
@@ -262,8 +272,9 @@ hours, rem = divmod(elapsed_time, 3600)
 minutes, seconds = divmod(rem, 60)
 print(f"Predictions completed in: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
 
-#%% Compute SSIM and Plot Results
 
+####################################################################################################################################
+#%% PREDICTION VISUALIZATION
 distance_ssim_map, ssim_scores_per_distance = compute_ssim_per_distance(test_gen, predictions)
 
 # Print average SSIM for all predictions
