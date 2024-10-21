@@ -34,6 +34,11 @@ output_dir = "amp_pred_unet"
 
 img_dimensions = (512, 512)
 
+# Learning rate used for training
+lr =  0.00001
+
+
+####################################################################################################################################
 #%% DATA LOADING FUNCTIONS
 
 class HoloAmpDataGenerator(tf.keras.utils.Sequence):
@@ -87,7 +92,9 @@ def split_data(holo_files, amp_files, train_percent=0.8, val_percent=0.1):
     )
     
     return (train_holo, train_amp), (val_holo, val_amp), (test_holo, test_amp)
+    
 
+####################################################################################################################################
 #%% FOURIER TRANSFORM LAYER
     
 class FourierTransformLayer(Layer):
@@ -103,7 +110,6 @@ class FourierTransformLayer(Layer):
         return input_shape
     
 #%% RESNET BLOCK
-
 def ResBlock(inputs, filters, kernel_size=3, stride=1, padding='same', mode='encode'):
     """
     Residual block function.
@@ -159,6 +165,8 @@ def extract_key(fname):
         return (digit, number, distance)
     return None
 
+
+####################################################################################################################################
 #%% PREPARING DATA
 
 holo_dir = 'HOLO_V2.0'  
@@ -198,7 +206,8 @@ X_batch, y_batch = train_gen[0]
 print("Shape of hologram batch (X_batch):", X_batch.shape)
 print("-------------------------------------------------------------------")
 
-#%% SSIM
+####################################################################################################################################
+#%% Functions to evaluate SSIM (Structural Similarity Index)
 
 def compute_ssim_per_distance(test_gen, predictions):
     distance_ssim_map = {}
@@ -235,7 +244,8 @@ def plot_ssim_distribution(ssim_scores_per_distance, output_path="ssim_distribut
     # Save the plot as a .png file
     plt.savefig(output_path)
     plt.close()  # Close the plot to free memory
-    
+
+####################################################################################################################################
 #%% LOADING MODEL AND MAKING PREDICTIONS
 
 #from tensorflow.keras.losses import MeanSquaredError
@@ -247,7 +257,6 @@ unet = load_model(model_path, custom_objects={'ResBlock': ResBlock}, compile=Fal
 unet.compile(optimizer=Adam(learning_rate=lr), loss='mean_squared_error', metrics=['mae'])
 
 #unet.compile(optimizer=Adam(learning_rate=0.00001 ), loss='mean_squared_error')
-
 
 start_time = time.time()
 predictions = unet.predict(test_gen)
@@ -264,8 +273,7 @@ print(f"Mean Squared Error (MSE) on testing data: {test_mse}")
 print(f"Mean Absolute Error (MAE) on testing data: {test_mae}")
 
 
-
-
+####################################################################################################################################
 #%% Compute SSIM and Plot Results
 
 distance_ssim_map, ssim_scores_per_distance = compute_ssim_per_distance(test_gen, predictions)
@@ -278,9 +286,7 @@ print(f"Average SSIM for all predictions: {average_ssim}")
 # Save SSIM Distribution plot as a PNG file
 plot_ssim_distribution(ssim_scores_per_distance, output_path=os.path.join(output_dir, "ssim_distribution_amp.png"))
 
-
 #%% VISUALIZATION OF PREDICTIONS
-
 def compute_ssim(true_images, predicted_images):
     """
     Computes the Structural Similarity Index (SSIM) between two sets of images.
