@@ -42,7 +42,7 @@ arch_type = "Resnet model 3 regression + transfer learning. 2048 neurons"
 model_filename = "model_resnet_reg.h5"
 loss_image = "model_resnet_reg.png"
 
-transfer_model = 'model_class_resnet8.h5' # resnet model 98% acc
+transfer_model = 'model_class_resnet.h5' # resnet model 98% acc
 
 # Image specifications
 img_dimensions = (512, 512)
