@@ -41,8 +41,8 @@ from tensorflow.keras.layers import Layer
 
 # ARCHITECTURE TYPE: Residual Network
 arch_type = "Resnet model, 21 categories."
-model_filename = "model_class_resnet8.h5"
-loss_image = "model_class_resnet8.png"
+model_filename = "model_class_resnet.h5"
+loss_image = "model_class_resnet.png"
 
 # Image specifications
 img_dimensions = (512, 512)
