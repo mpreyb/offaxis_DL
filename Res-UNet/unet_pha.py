@@ -51,7 +51,6 @@ from tensorflow.keras.layers import Add, BatchNormalization, Activation, Concate
 # Paths to save and load the model
 arch_type = "U-net Resnet model with data augmentation. Phase reconstruction"
 model_filename = "model_unet_pha.h5"
-#output_dir = "amp_pred_unet_pha"
 loss_image = "model_unet_pha.png"
 
 # Image specifications
