@@ -248,11 +248,7 @@ def plot_ssim_distribution(ssim_scores_per_distance, output_path="ssim_distribut
 ####################################################################################################################################
 #%% LOADING MODEL AND MAKING PREDICTIONS
 
-#from tensorflow.keras.losses import MeanSquaredError
-
-# Load the model and replace the custom 'mse' with the built-in MeanSquaredError
-#unet = load_model(model_path, custom_objects={'ResBlock': ResBlock, 'mse': MeanSquaredError()})
-
+# Load the model
 unet = load_model(model_path, custom_objects={'ResBlock': ResBlock}, compile=False)
 unet.compile(optimizer=Adam(learning_rate=lr), loss='mean_squared_error', metrics=['mae'])
 
@@ -274,7 +270,7 @@ print(f"Mean Absolute Error (MAE) on testing data: {test_mae}")
 
 
 ####################################################################################################################################
-#%% Compute SSIM and Plot Results
+#%% PREDICTION VISUALIZATION
 
 distance_ssim_map, ssim_scores_per_distance = compute_ssim_per_distance(test_gen, predictions)
 
