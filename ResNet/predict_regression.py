@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""prediction_distances_regression.py
+"""predict_regression.py
 
 # PREDICTION AND EVALUATION ON TEST DATASET
 
