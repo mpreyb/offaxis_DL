@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-# PREDICTION AND EVALUATION ON TEST DATASET
+# PREDICTIONS ON TEST DATASET (REGRESSION MODEL)
 
 Author: Maria Paula Rey*, Raul Castañeda**
 
 Applied Sciences and Engineering School, EAFIT University (Applied Optics Group)  
 Email: mpreyb@eafit.edu.co , racastaneq@eafit.edu.co
 
-Date last modified: 13/08/2024
+Date last modified: 21/10/2024
 """
 
 # Import libraries
