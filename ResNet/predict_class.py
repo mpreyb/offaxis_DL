@@ -30,8 +30,7 @@ from sklearn.metrics import accuracy_score
 
 img_dimensions = (512, 512)
 
-#model_filename = "model_class_resnet_7.h5"
-model_filename = "model_class_resnet7_2048.h5"
+model_filename = "model_class_resnet.h5"
 csv_file = 'test_predictions.csv'
 
 
