@@ -32,7 +32,7 @@ import time
 #%% MODEL DETAILS
 
 model_path = "model_unet_pha.h5"
-output_dir = "pha_pred_unet_3"
+output_dir = "pha_pred_unet"
 
 img_dimensions = (512, 512)
 
