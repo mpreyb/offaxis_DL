@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""predict_regression.py
-
+"""
 # PREDICTION AND EVALUATION ON TEST DATASET
 
 Author: Maria Paula Rey*, Raul Castañeda**
@@ -23,15 +22,17 @@ import re
 import tensorflow as tf
 from tensorflow.keras.layers import Layer
 
-#%%
 
-# Load trained model
+# Trained model path
 model_name = "model_resnet_reg.h5"   
 
 # .csv file to save predictions
 pred_file = 'pred_model_resnet8_reg_old.csv'    
 
 img_dimensions = (512, 512)
+
+####################################################################################################################################
+# NECESSARY FUNCTIONS
 
 class FourierTransformLayer(Layer):
     def __init__(self, **kwargs):
@@ -47,6 +48,8 @@ class FourierTransformLayer(Layer):
     def compute_output_shape(self, input_shape):
         return input_shape
 
+
+####################################################################################################################################
 #%% DATA LOADING FUNCTIONS
  
 # Function for loading images and obtaining the corresponding propagation distance
@@ -127,7 +130,7 @@ def split_data(processed_images):
 
     return (X_train, y_train), (X_val, y_val), (X_test, y_test), real_dist, norm_dist
 
-#%%
+####################################################################################################################################
 
 # path to load data
 dir_images = 'HOLO_V2.0'
@@ -160,10 +163,11 @@ print("- Number of amplitudes for test", len(X_test))
 print("-------------------------------------------------------------------")
 
 #%%
+####################################################################################################################################
+#%% LOADING MODEL AND MAKING PREDICTIONS
 
 # Load the model with the custom layer
 model = load_model(model_name, custom_objects={'FourierTransformLayer': FourierTransformLayer})
-
 
 # Make predictions with the model
 start_time = time.time()
@@ -173,13 +177,6 @@ predicted_distances = model.predict(X_test)
 end_time = time.time()
 
 predicted_distances = predicted_distances.flatten()
-
-# Evaluate the model on the training set
-#test_mse, test_mae = model.evaluate(test_gen, verbose=1)
-#print(f"Mean Squared Error (MSE) on testing data: {test_mse}")
-#print(f"Mean Absolute Error (MAE) on testing data: {test_mae}")
-
-#%% Denormalizing and printing predictions
 
 # Calculate absolute errors
 rel_errors = np.abs(y_test - predicted_distances) / np.abs(y_test)
@@ -200,7 +197,8 @@ hours, rem = divmod(elapsed_time, 3600)
 minutes, seconds = divmod(rem, 60)
 print(f"Predictions completed in: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
 
-#%% Report
+####################################################################################################################################
+#%% REPORT
 
 print("-------------------------------------------------------------------")
 print("-**** MODEL PREDICTIONS SUMMARY ****-")
