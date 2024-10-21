@@ -19,32 +19,19 @@
     Date last modified: 17/10/2024
 '''
 
+# Import necessary libraries
 import tensorflow as tf
 from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, MaxPooling2D, Conv2DTranspose, UpSampling2D
 from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import Adam
 import numpy as np
 import os
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.utils import Sequence
-import numpy as np
 import re
-from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-import csv
 import random
 from datetime import datetime
-import tensorflow as tf
-from tensorflow.keras.layers import Layer
-import cv2  # Added for image rotation
-#import tensorflow_addons as tfa  # Added for advanced image augmentation functions
-from skimage.metrics import structural_similarity as ssim
-from tensorflow.keras.models import load_model
-from tensorflow.keras.losses import mean_squared_error
-import time
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, Callback
-from tensorflow.keras.layers import Add, BatchNormalization, Activation, Concatenate
+from tensorflow.keras.layers import Add, Concatenate
 
 #%% MODEL DETAILS
 
