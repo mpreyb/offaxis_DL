@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""amplitude_predictions.py
+"""
 
 # PREDICTIONS FOR AMPLITUDE RECONSTRUCTIONS
 --------------------------------------------------------------------------------
@@ -12,40 +12,27 @@ Email: mpreyb@eafit.edu.co , racastaneq@eafit.edu.co
 Date last modified: 08/10/2024
 """
 
+# Import necessary libraries
 import tensorflow as tf
 from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, MaxPooling2D, Conv2DTranspose
 from tensorflow.keras.optimizers import Adam
-import numpy as np
-import os
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.utils import Sequence
 import os
 import numpy as np
 import re
-from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-import csv
-import random
-from datetime import datetime
-import tensorflow as tf
 from tensorflow.keras.layers import Layer
 from skimage.metrics import structural_similarity as ssim
 from tensorflow.keras.models import load_model
-from tensorflow.keras.losses import mean_squared_error, mean_absolute_error
 import time
-from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Activation, Add
+from tensorflow.keras.layers import Add
 
 #%% MODEL DETAILS
 
-model_path = "model_unet_amp_2.h5"
-output_dir = "amp_pred_unet_2"
+model_path = "model_unet_amp.h5"
+output_dir = "amp_pred_unet"
 
 img_dimensions = (512, 512)
-
-epoch = 100
-batch = 260
-lr =  0.00001
 
 #%% DATA LOADING FUNCTIONS
 
