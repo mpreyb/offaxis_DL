@@ -39,8 +39,8 @@ from tensorflow.keras.optimizers import Adam
 #%% MODEL DETAILS
 # ARCHITECTURE TYPE: Sequential Semantic Segmentation Regression Network 
 arch_type = "Resnet model 3 regression + transfer learning. 2048 neurons"
-model_filename = "model_reg_resnet8.h5"
-loss_image = "model_reg_resnet8.png"
+model_filename = "model_resnet_reg.h5"
+loss_image = "model_resnet_reg.png"
 
 transfer_model = 'model_class_resnet8.h5' # resnet model 98% acc
 
