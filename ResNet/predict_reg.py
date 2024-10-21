@@ -27,7 +27,7 @@ from tensorflow.keras.layers import Layer
 model_name = "model_resnet_reg.h5"   
 
 # .csv file to save predictions
-pred_file = 'pred_model_resnet8_reg_old.csv'    
+pred_file = 'pred_model_resnet.csv'    
 
 img_dimensions = (512, 512)
 
