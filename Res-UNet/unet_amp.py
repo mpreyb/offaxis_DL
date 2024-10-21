@@ -56,8 +56,8 @@ from tensorflow.keras.optimizers import Adam
 
 # ARCHITECTURE TYPE: Sequential Semantic Segmentation Regression Network 
 arch_type = "U-net Resnet model with data augmentation. Amp reconstruction"
-model_filename = "model_unet_amp_2.h5"
-loss_image = "model_unet_amp_2.png"
+model_filename = "model_unet_amp.h5"
+loss_image = "model_unet_amp.png"
 
 
 # Image specifications
