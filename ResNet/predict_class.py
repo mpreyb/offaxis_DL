@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-"""resnet_4.py
+"""
 
 #  CLASSIFICATION PREDICTIONS (Resnet)
 --------------------------------------------------------------------------------
-Only distance classification (7 categories) 
+Distance classification (21 categories) 
 
 Author: Maria Paula Rey*, Raul Castañeda**
 
 Applied Sciences and Engineering School, EAFIT University (Applied Optics Group)  
 Email: mpreyb@eafit.edu.co , racastaneq@eafit.edu.co
 
-Date last modified: 13/08/2024
+Date last modified: 21/10/2024
 """
 
 import os
@@ -28,12 +28,11 @@ from sklearn.metrics import accuracy_score
 
 #%%
 
-filename = 'try.png'
+#filename = 'try.png'
 img_dimensions = (512, 512)
 
 #model_filename = "model_class_resnet_7.h5"
 model_filename = "model_class_resnet7_2048.h5"
-
 
 
 #%%
