@@ -18,38 +18,19 @@
     Date last modified: 17/10/2024
 '''
 
+# Import necessary libraries
 import tensorflow as tf
 from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, MaxPooling2D, Conv2DTranspose, UpSampling2D
 from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import Adam
 import numpy as np
 import os
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.utils import Sequence
-import os
-import numpy as np
 import re
-from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-import csv
 import random
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Input, Conv2DTranspose, UpSampling2D, Add, Conv2D, BatchNormalization, Activation
-from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras import optimizers
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, Callback
 from datetime import datetime
-from tensorflow.keras.models import load_model, Model
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.layers import Add, BatchNormalization, Activation, Concatenate
-from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Activation, Add
-import tensorflow as tf
-from tensorflow.keras.layers import Layer
-import tensorflow.keras.backend as K
-from sklearn.preprocessing import normalize
-from tensorflow.keras.optimizers import Adam
-#from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.layers import Add, Concatenate
 
 ####################################################################################################################################
 #%% MODEL DETAILS
