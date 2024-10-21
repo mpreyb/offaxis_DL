@@ -16,9 +16,7 @@ Licensed under the MIT License; you may not use this file except in compliance w
 
 ## Contact
 Applied Sciences and Engineering School, EAFIT University (Applied Optics Group)
-\begin{itemize}
-  \item Maria Paula Rey (mpreyb@eafit.edu.co)
-  \item Raul Castañeda
-\end{itemize}
+- Maria Paula Rey (mpreyb@eafit.edu.co)
+- Raul Castañeda (racastaneq@eafit.edu.co)
 
 
