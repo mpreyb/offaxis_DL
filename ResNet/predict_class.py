@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-
 #  CLASSIFICATION PREDICTIONS (Resnet)
 --------------------------------------------------------------------------------
 Distance classification (21 categories) 
