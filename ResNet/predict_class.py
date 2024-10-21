@@ -13,6 +13,7 @@ Email: mpreyb@eafit.edu.co , racastaneq@eafit.edu.co
 Date last modified: 21/10/2024
 """
 
+# Import necessary libraries
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,14 +29,15 @@ from sklearn.metrics import accuracy_score
 
 #%%
 
-#filename = 'try.png'
 img_dimensions = (512, 512)
 
 #model_filename = "model_class_resnet_7.h5"
 model_filename = "model_class_resnet7_2048.h5"
+csv_file = 'test_predictions.csv'
 
 
-#%%
+####################################################################################################################################
+#%% NECESSARY FUNCTIONS
 
 class FourierTransformLayer(Layer):
     def __init__(self, **kwargs):
@@ -161,8 +163,8 @@ def split_data(processed_images, all_filenames):
     
     return (X_train, y_train, train_filenames), (X_val, y_val, val_filenames), (X_test, y_test, test_filenames)
 
-#%%
-
+####################################################################################################################################
+# LOAD MODELS AND MAKE PREDICTIONS
 
 # Function to generate predictions and save to CSV
 def save_predictions_to_csv(model, X_test, y_test, test_filenames, csv_filename):
@@ -195,9 +197,10 @@ def save_predictions_to_csv(model, X_test, y_test, test_filenames, csv_filename)
     accuracy = accuracy_score(y_test, predicted_categories)
     print(f"Accuracy: {accuracy:.4f}")
 
-#%%
+####################################################################################################################################
+# LOADING DATA
 
-# path to load data
+# Path to load holograms
 dir_images = 'HOLO_V2.0'
 
 # Loading images data and pre-processing
@@ -219,16 +222,11 @@ model = tf.keras.models.load_model(model_filename, custom_objects={'FourierTrans
 test_loss, test_accuracy = model.evaluate(holo_test, cat_test, verbose=1)
 print(f"Test Loss: {test_loss}, Test Accuracy: {test_accuracy}")
 
-# Ensure test_filenames corresponds to the actual test images
-#test_filenames = [filename for filename, _ in instances if filename in holo_test_filenames]
-
 # Save predictions and calculate accuracy
-save_predictions_to_csv(model, holo_test, cat_test, test_filenames, 'test_predictions_2048.csv')
-
+save_predictions_to_csv(model, holo_test, cat_test, test_filenames, csv_file)
 
 print("---------------------------------------------------")
 print(f"Predictions done using {model_filename}")
-
 print("---------------------------------------------------")
 
 
