@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""phase_predictions.py
+"""
 
 # PREDICTIONS FOR AMPLITUDE RECONSTRUCTIONS
 --------------------------------------------------------------------------------
@@ -13,29 +13,20 @@ Email: mpreyb@eafit.edu.co , racastaneq@eafit.edu.co
 
 Date last modified: 30/09/2024
 """
-from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Activation, Add
+
+# Import necessary libraries
+from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Add
 import tensorflow as tf
-from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, MaxPooling2D, Conv2DTranspose, UpSampling2D
-from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Conv2DTranspose
 from tensorflow.keras.optimizers import Adam
 import numpy as np
 import os
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.utils import Sequence
-import os
-import numpy as np
 import re
-from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-import csv
-import random
-from datetime import datetime
-import tensorflow as tf
 from tensorflow.keras.layers import Layer
 from skimage.metrics import structural_similarity as ssim
 from tensorflow.keras.models import load_model
-from tensorflow.keras.losses import mean_squared_error
 import time
 
 #%% MODEL DETAILS
