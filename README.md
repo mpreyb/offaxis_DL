@@ -10,7 +10,7 @@ For the image-to-image (hologram-to-reconstruction) task, a U-Net architecture w
 Trained models are available at: https://www.kaggle.com/models/mariareyb/autofocusing-model-for-dhm-holograms. 
 
 ## Reference
-For more details on these models, please refer to the following publications. These are also the recommended citations if you use this tool in your work.
+For more details on these models, please refer to the following publications. These are also the recommended citations if you use this tool in your work. (Pending Publication) 
 
 ## License & Copyright
 Copyright 2024 Universidad EAFIT
